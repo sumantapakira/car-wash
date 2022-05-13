@@ -1,22 +1,26 @@
 package carwash;
 
-public class BaseService implements MechanicalService{
+public class BaseService extends MechanicalService{
 
-	private String serviceCode;
-	private String serviceDescription;
-	
 	@Override
 	public int calculatePrice(Car car) {
+		int price;
+		
 		switch(car.getCarType()) {
 		case "SUV":
-			return 5000;
+			price= 5000;
+			break;
 		case "SEDAN":
-			return 4000;
+			price= 4000;
+			break;
 	    case "HATCHBACK":
-			return 2000;
+			price= 2000;
+			break;
 		default:
-		 return 0;
+		 price= 0;
 		}
+		System.out.println("The price for Service Code : "+this.getServiceCode() + " is : "+price);
+		return price;
 	}
 
 	public BaseService(String serviceCode, String serviceDescription) {
@@ -25,13 +29,4 @@ public class BaseService implements MechanicalService{
 		this.serviceDescription = serviceDescription;
 	}
 
-	@Override
-	public String getServiceCode() {
-		return this.serviceCode;
-	}
-
-	@Override
-	public String getServiceDescription() {
-		return this.serviceDescription;
-	}
 }
