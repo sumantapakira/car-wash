@@ -19,14 +19,19 @@ public class BaseService implements MechanicalService{
 		}
 	}
 
-	@Override
-	public void setServiceCode(String code) {
-		this.serviceCode = code;
+	public BaseService(String serviceCode, String serviceDescription) {
+		super();
+		this.serviceCode = serviceCode;
+		this.serviceDescription = serviceDescription;
 	}
 
 	@Override
-	public void setServiceDescription(String description) {
-		this.serviceDescription = description;
+	public String getServiceCode() {
+		return this.serviceCode;
 	}
 
+	@Override
+	public String getServiceDescription() {
+		return this.serviceDescription;
+	}
 }
