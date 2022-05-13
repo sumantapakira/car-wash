@@ -10,17 +10,17 @@ public class Main {
 		car.setCarId("123");
 		car.setCarType("SEDAN");
 		
-		AdvancedWash advanced = new AdvancedWash();
-		BaseWash1 base = new BaseWash1();
-		MoreAdvancedWash moreAdvance = new MoreAdvancedWash();
-		List<Wash> list = new ArrayList<>();
+		BaseService baseService = new BaseService("BS01", "Basic Servicing");
+		EngineProblem engine = new EngineProblem("EP01", "Engine Problem");
+		BreakFixing breakFixing = new BreakFixing("BF01", "Break Fixing");
+		List<MechanicalService> list = new ArrayList<>();
 		
-		list.add(base);
-		list.add(advanced);
-		list.add(moreAdvance);
+		list.add(baseService);
+		list.add(engine);
+		list.add(breakFixing);
 			
 		int  price = CarWashServiceFactory.createCarWashService().getPrice(car, list);
-		System.out.println(price);
+		System.out.println("Total price ## " +price);
 	}
 
 }
